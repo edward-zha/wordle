@@ -1,17 +1,25 @@
+import { keyboard } from '@testing-library/user-event/dist/keyboard';
 import React, { useContext } from 'react'
 import { AppContext } from '../App'
 import Board from './Board'
 
+// for each key within the keyboard
+function Key({keyVal, bigKey, disabled}) {
 
-function Key({keyVal, bigKey}) {
-    const { board, setBoard } = useContext(AppContext);
+    const { onSelectLetter, onEnter, onDelete } = useContext(AppContext);
+
+    // when selecting a letter on the keyboard
     const selectLetter = () => {
-        const newBoard = [...board]
-        newBoard[0][0] = keyVal;
-        setBoard(newBoard);
+        if (keyVal === "ENTER") {
+            onEnter();
+        } else if (keyVal === "DELETE") {
+            onDelete();
+        } else {
+            onSelectLetter(keyVal);
+        }
     }
     return (
-        <div className='key' id={bigKey && "big"} onClick={selectLetter}>
+        <div className='key' id={bigKey ? "big" : disabled && "disabled"} onClick={selectLetter}>
             {keyVal}
         </div>
     )

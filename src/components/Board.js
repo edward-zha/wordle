@@ -1,7 +1,7 @@
 import React, {createContext, useState} from 'react'
 import Letter from './Letter';
 
-
+// displays the board of letters
 function Board() {
   return (
     <div className='board'>
