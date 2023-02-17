@@ -1,3 +1,6 @@
+Go to https://edward-zha.github.io/wordle/ to access this app!
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
